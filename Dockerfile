@@ -1,11 +1,11 @@
-FROM node:9.6.1-alpine AS build
+FROM node:12.7-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 
-RUN npm i npm@latest -g
+RUN npm install
 
 COPY . .
 RUN npm run build --prod
-
+EXPOSE 8080
 # start app
 CMD ["npm", "start"]
