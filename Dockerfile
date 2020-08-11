@@ -5,7 +5,7 @@ COPY package.json package-lock.json ./
 RUN npm i npm@latest -g
 
 COPY . .
-RUN ng build
+RUN npm run build --prod
 
 # start app
 CMD ["npm", "start"]
